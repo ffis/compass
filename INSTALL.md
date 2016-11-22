@@ -146,6 +146,59 @@ $ npm run installdb
 
 ``` 
 
+Test:
+
+```bash
+$ npm run installdb #re-run
+```
+
+Then the output should be similar to:
+```txt
+table  alergia  has been found. OK.
+table  analiticahl7  has been found. OK.
+table  analiticaindicador  has been found. OK.
+table  analiticaresultado  has been found. OK.
+table  categoriaanaliticahl7  has been found. OK.
+table  cp  has been found. OK.
+table  datospersonalesanaliticahl7  has been found. OK.
+table  datospersonalespaciente  has been found. OK.
+table  device  has been found. OK.
+table  etiqueta  has been found. OK.
+table  etiquetavisita  has been found. OK.
+table  facultativo  has been found. OK.
+table  facultativocarm  has been found. OK.
+table  ficticios  has been found. OK.
+table  hito  has been found. OK.
+table  indicadoranaliticahl7  has been found. OK.
+table  indicadorclasificacion  has been found. OK.
+table  localizacion  has been found. OK.
+table  mapa  has been found. OK.
+table  message  has been found. OK.
+table  motivoacto  has been found. OK.
+table  motivoalta  has been found. OK.
+table  notificacion  has been found. OK.
+table  obx  has been found. OK.
+table  obxval  has been found. OK.
+table  paciente  has been found. OK.
+table  preingreso  has been found. OK.
+table  registroactividad  has been found. OK.
+table  resultadoanaliticahl7  has been found. OK.
+table  resultadosmicro  has been found. OK.
+table  rx  has been found. OK.
+table  rxtipo  has been found. OK.
+table  servicio  has been found. OK.
+table  sprites_location  has been found. OK.
+table  suscripcion  has been found. OK.
+table  tipoprueba  has been found. OK.
+table  trigger  has been found. OK.
+table  valorcritico  has been found. OK.
+table  vectorialbody  has been found. OK.
+table  visitapaciente  has been found. OK.
+Installed successfully
+```
+
+
+
 ## <a name="nginx"></a> Install nginx
 
 [nginx](https://nginx.org/) is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by Igor Sysoev.
