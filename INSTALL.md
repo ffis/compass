@@ -1,5 +1,7 @@
+# Install
 
-Here you can 
+
+The following installation guide will help you to install all of the software required.
 
 * [Redis installation](#redis)
     * [Installation using vagrant](#redisvagrant)
