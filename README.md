@@ -2,6 +2,10 @@
 Real Time Dashboard Utilities
 
 
+
+## Vagrant Version
+
+
 ### Install virtualbox, vagrant and git:
 ```bash
 $ sudo apt-get install -y virtualbox vagrant git
@@ -20,7 +24,7 @@ $ git --version
 git version 2.7.4 
 ```
 
-### Deploy redis using:
+### Deploy redis using vagrant:
 ```bash
 $ git clone https://github.com/ffis/vagrant-redis vagrant-redis
 $ cd vagrant-redis
@@ -42,3 +46,27 @@ $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 ```
 
 
+## Docker version (experimental)
+
+### Install docker and git:
+```bash
+$ sudo apt-get install -y docker.io git
+```
+
+
+### Deploy redis using vagrant:
+
+```bash
+$ sudo service docker start
+$ sudo docker run --name some-redis -p6379:6379 -d redis
+
+$ pidredis=`sudo docker ps -a | grep redis | cut -f 1 -d " "`
+$ sudo docker stop $pidredis 
+$ sudo docker rm $pidredis 
+```
+
+Filtering connections:
+```bash
+$ sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
+$ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
+```
