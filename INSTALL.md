@@ -46,7 +46,9 @@ git version 2.7.4
 ```bash
 $ git clone https://github.com/ffis/vagrant-redis vagrant-redis
 $ cd vagrant-redis
-$ vagrant up
+$ vagrant up # to wake up the Virtual Machine
+$ vagraht halt # use this anytime you want or you need to, you may turn it off
+
 ```
 
 Test:
@@ -107,8 +109,8 @@ $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 #### Install nodejs
 ```bash
 $ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install build-essential
+$ sudo apt-get -y upgrade
+$ sudo apt-get install -y build-essential
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
@@ -128,7 +130,7 @@ $ sudo apt-get install -y git
 
 Test version:
 ```bash
-$git --version
+$ git --version
 git version 1.9.1
 ```
 
@@ -143,7 +145,6 @@ $ vim config.json # configure the db attribute and provide the host, user, passw
 $ npm run installdb
 
 ``` 
-
 
 ## <a name="nginx"></a> Install nginx
 
@@ -189,7 +190,6 @@ http {
 
 	gzip on;
 	gzip_disable "msie6";
-
 
 	client_max_body_size 20M;
 

@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/ffis/compass#readme",
   "dependencies": {
-    "q": "^1.4.1"
+    "colors": "^1.1.2",
+    "mssql": "^3.3.0",
+    "q": "^1.4.1",
+    "redis": "^2.6.3"
   }
 }
