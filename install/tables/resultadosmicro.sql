@@ -1,0 +1,37 @@
+CREATE TABLE [dbo].[resultadosmicro](
+	[resultadosmicroid] [int] IDENTITY(1,1) NOT NULL,
+	[idmensaje] [varchar](20) NOT NULL,
+	[nhc] [int] NOT NULL,
+	[cipautonomico] [varchar](50) NOT NULL,
+	[nif] [varchar](50) NOT NULL,
+	[nss] [varchar](50) NOT NULL,
+	[genero] [char](1) NOT NULL,
+	[fechanacimiento] [datetime] NOT NULL,
+	[nombre] [varchar](255) NOT NULL,
+	[apellidos] [varchar](255) NOT NULL,
+	[servicio] [varchar](50) NOT NULL,
+	[idvisita] [varchar](50) NOT NULL,
+	[ordencontrol] [varchar](50) NOT NULL,
+	[numeropeticion1] [varchar](20) NOT NULL,
+	[numeropeticion2] [varchar](20) NOT NULL,
+	[numeropeticion3] [varchar](20) NOT NULL,
+	[fechatransaccion] [datetime] NULL,
+	[fechaobservacion] [datetime] NULL,
+	[fechaobservacion2] [datetime] NULL,
+	[fechaspecimen] [datetime] NULL,
+	[fecharesultados] [datetime] NULL,
+	[tipoprueba] [int] NOT NULL,
+	[valor] [varchar](max) NOT NULL,
+	[serviciodiagnostico] [varchar](50) NOT NULL,
+	[alerta] [char](1) NOT NULL,
+	[tipovalor] [char](10) NOT NULL,
+	[subtipovalor] [varchar](50) NOT NULL,
+	[dnitecnicolaboratorio] [varchar](9) NOT NULL,
+	[status] [char](1) NOT NULL,
+	[dangercode] [char](1) NOT NULL,
+	[fechanotificacion] [datetime] NULL,
+ CONSTRAINT [PK_resultadosmicro] PRIMARY KEY CLUSTERED 
+(
+	[resultadosmicroid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
