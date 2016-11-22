@@ -12,8 +12,8 @@ The system is composed by several parts each of one can be running on different 
 
 
 ![Diagram](https://cdn.rawgit.com/ffis/compass/master/docs/diagram.svg)
+<!--
 <img src="https://cdn.rawgit.com/ffis/compass/master/docs/diagram.svg"/>
-
+-->
 
 [Installation process](./docs/INSTALL.md)
-
