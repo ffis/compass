@@ -1,0 +1,25 @@
+{
+  "name": "compass",
+  "version": "1.0.0",
+  "description": "Real Time Dashboard Utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffis/compass.git"
+  },
+  "keywords": [
+    "rt"
+  ],
+  "author": "Loksly, ivanlorca (FFIS, https://www.ffis.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ffis/compass/issues"
+  },
+  "homepage": "https://github.com/ffis/compass#readme",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
+}
