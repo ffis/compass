@@ -59,7 +59,7 @@ $ bash redi.sh -g testvar
 # If you can read "this is a variable" then everything is ok.
 ```
 
-Filtering connections:
+Filtering connections: (change according to DMZ)
 ```bash
 $ sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
 $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
@@ -94,7 +94,7 @@ $ bash redi.sh -g testvar
 # If you can read "this is a variable" then everything is ok.
 ```
 
-Filtering connections:
+Filtering connections: (change according to DMZ)
 ```bash
 $ sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
 $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
@@ -104,47 +104,33 @@ $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 
 ## <a name="database"></a> Recreate database
 
-### Install dependencies
+### Create database and configure it
 
-#### Install nodejs
+Go to the _Microsoft SQL Server Management Studio_ then connect to the database user.
+* Create a new database, lets name it test.
+* Create a new user for adding some data, lets name it writer. Configure it to use an SQL user and password login.
+	* Assign user to database test db_ddladmin, db_datawriter and db_datareader function.
+* Create a new user for retrieving data, lets name it reader. Configure it to use an SQL user and password login.
+	* Assign user to database test db_datareader function.
+
+
+### Recreate tables using docker and nodejs
+
+
 ```bash
-$ sudo apt-get update
-$ sudo apt-get -y upgrade
-$ sudo apt-get install -y build-essential
-$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-```
-
-Test versions:
-```bash
-$ node --version
-v6.9.1
-$ npm --version
-3.10.8
-```
-
-#### Install git
-```bash
-$ sudo apt-get install -y git
-```
-
-Test version:
-```bash
-$ git --version
-git version 1.9.1
-```
-
-
-### Run database recreation script
-```bash
-
 $ git clone https://github.com/ffis/compass
 $ cd compass
 $ npm install
-$ vim config.json # configure the db attribute and provide the host, user, password and database name
-$ npm run installdb
+$ vim config.json
 
-``` 
+# configure the db attribute and provide the host, user, password and database name
+# (db.user, db.password, db.server, db.database)
+# (note you should use an IP address not a name declared on /etc/hosts for host as filesystem is different inside the container)
+
+$ sudo docker pull node
+$ sudo docker run -it --rm --name my-install-script -v "$PWD":/usr/src/app -w /usr/src/app node npm run installdb
+```
+
 
 Test:
 
@@ -198,10 +184,22 @@ Installed successfully
 ```
 
 
-
-## <a name="nginx"></a> Install nginx
+## <a name="nginx"></a> Nginx
 
 [nginx](https://nginx.org/) is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by Igor Sysoev.
+
+
+Again you may choose two ways to use nginx. The preferred way is the _docker_ one.
+
+
+### Deploy nginx using docker:
+
+```bash
+$ sudo service docker start
+
+```
+
+
 
 ```bash
 $ sudo apt-get update

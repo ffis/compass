@@ -29,13 +29,13 @@
 		}
 	},
 	"db": {
-		"user": "testuser",
-		"password": "password",
-		"server": "ip",
+		"user": "writer",
+		"password": "writer",
+		"server": "",
 		"database": "test",
 		"connectionTimeout": 150000,
 		"requestTimeout": 150000,
-		"logqueries": true
+		"logqueries": false
 	},
 	"crypto": {
 		"algorithm": "aes-256-ctr",
