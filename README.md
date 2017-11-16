@@ -11,9 +11,9 @@ The system is composed by several parts each of one can be running on different 
 * [nginx](http://nginx.org/): A Web server, here it acts as a load balancer. You may not use it but is also recommended.
 
 
-![Diagram](http://cdn.rawgit.com/ffis/compass/e9f2a6be3f78ea9b7dd86db58283c4c34a34ae48/docs/diagram.svg)
+![Diagram](http://cdn.rawgit.com/ffis/compass/master/docs/stack.svg)
 <!--
-<img src="http://cdn.rawgit.com/ffis/compass/e9f2a6be3f78ea9b7dd86db58283c4c34a34ae48/docs/diagram.svg"/>
+<img src="http://cdn.rawgit.com/ffis/compass/e9f2a6be3f78ea9b7dd86db58283c4c34a34ae48/docs/stack.svg"/>
 -->
 
 [Installation process](./docs/INSTALL.md)
