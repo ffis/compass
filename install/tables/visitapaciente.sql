@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[visitapaciente](
 	[visitapacienteid] [bigint] IDENTITY(1,1) NOT NULL,
 	[nhc] [bigint] NOT NULL,
-	[icu] [int] NOT NULL,
+	[icu] [bigint] NOT NULL,
 	[clase] [nvarchar](10) NOT NULL,
 	[localizacion] [int] NOT NULL,
 	[facultativoasignado] [nvarchar](50) NOT NULL,

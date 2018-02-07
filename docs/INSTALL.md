@@ -1,13 +1,12 @@
 # Install
 
-
 The following installation guide will help you to install all of the software required.
 
 * [Redis installation](#redis)
     * [Installation using vagrant](#redisvagrant)
     * [Installation using docker](#redisdocker)
 * [Recreate database](#database)
-* [nginx installation](#nginx)
+
 
  
 ## <a name="redis"></a> Redis installation
@@ -114,28 +113,28 @@ Go to the _Microsoft SQL Server Management Studio_ then connect to the database 
 	* Assign user to database test db_datareader function.
 
 
-### Recreate tables using docker and nodejs
+### Recreate tables using nodejs
 
+
+Run these commands on a bash terminal:
 
 ```bash
-$ git clone https://github.com/ffis/compass
-$ cd compass
-$ npm install
-$ vim config.json
+git clone https://github.com/ffis/compass
+cd compass
+npm install
+vim config.json
 
 # configure the db attribute and provide the host, user, password and database name
 # (db.user, db.password, db.server, db.database)
-# (note you should use an IP address not a name declared on /etc/hosts for host as filesystem is different inside the container)
 
-$ sudo docker pull node
-$ sudo docker run -it --rm --name my-install-script -v "$PWD":/usr/src/app -w /usr/src/app node npm run installdb
+npm run installdb
 ```
 
 
 Test:
 
 ```bash
-$ npm run installdb #re-run
+npm run installdb #re-run
 ```
 
 Then the output should be similar to:
@@ -183,90 +182,3 @@ table  visitapaciente  has been found. OK.
 Installed successfully
 ```
 
-
-## <a name="nginx"></a> Nginx
-
-[nginx](https://nginx.org/) is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by Igor Sysoev.
-
-
-Again you may choose two ways to use nginx. The preferred way is the _docker_ one.
-
-
-### Deploy nginx using docker:
-
-```bash
-$ sudo service docker start
-
-```
-
-
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get install -y nginx
-$ sudo vim /etc/nginx/nginx.conf # change the parameters as shown in the next figure
-$ sudo service nginx restart
-```
-
-
-Configuration:
-* check ssl securing: http://nginx.org/en/docs/http/configuring_https_servers.html
-* check load balancer configuration: http://nginx.org/en/docs/http/load_balancing.html 
-
-
-
-The next code needs to be changed:
-
-```txt
-user www-data;
-worker_processes 4;
-pid /run/nginx.pid;
-
-events {
-	worker_connections 768;
-	# multi_accept on;
-}
-http {
-	sendfile on;
-	tcp_nopush on;
-	tcp_nodelay on;
-	keepalive_timeout 65;
-	types_hash_max_size 2048;
-
-	include /etc/nginx/mime.types;
-	default_type application/octet-stream;
-
-	access_log /var/log/nginx/access.log;
-	error_log /var/log/nginx/error.log;
-
-	gzip on;
-	gzip_disable "msie6";
-
-	client_max_body_size 20M;
-
-	include /etc/nginx/conf.d/*.conf;
-	include /etc/nginx/sites-enabled/*;
-}
-
-```
-
-1.conf
-```txt
-server
-{
-	listen  80;
-
-
-    location / {
-		proxy_pass         https://ip:3000;
-		proxy_set_header   Host             $host;
-		proxy_set_header   X-Real-IP        $remote_addr;
-		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-		client_max_body_size 20M;
-		proxy_connect_timeout       600;
-		proxy_send_timeout          600;
-		proxy_read_timeout          600;
-		send_timeout                600;
-	}
-}
-```
