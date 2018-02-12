@@ -1,0 +1,45 @@
+{
+	"debug": true,
+	"path2watch": "/directory",
+	"path2watchOptions": {},
+	"batch": {
+		"blocksize": 10
+	},
+	"logger": {
+		"transports": {
+			"console": { "json": false, "timestamp": true },
+			"file": { "filename": "logs/debug.log", "json": false }
+		},
+		"exceptionHandlers": {
+			"console": { "json": false, "timestamp": true },
+			"file": { "filename": "logs/exceptions.log", "json": false }
+		}
+	},
+	"hl7parser": {
+		"mapping": false,
+		"profiling": true,
+		"debug": true,
+		"fileEncoding": "iso-8859-1"
+	},
+	"redis": {
+		"host": "127.0.0.1",
+		"port": 6379,
+		"parameters": {
+			"auth_pass": ""
+		}
+	},
+	"db": {
+		"user": "",
+		"password": "",
+		"server": "localhost",
+		"database": "",
+		"connectionTimeout": 150000,
+		"requestTimeout": 150000,
+		"logqueries": false
+	},
+	"crypto": {
+		"algorithm": "aes-256-ctr",
+		"password": ""
+	},
+	"persistentengine": "mssql"
+}

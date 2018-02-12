@@ -11,17 +11,17 @@ Again you may choose two ways to use nginx. The preferred way is the _docker_ on
 ### Deploy nginx using docker:
 
 ```bash
-$ sudo service docker start
+sudo service docker start
 
 ```
 
 
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install -y nginx
-$ sudo vim /etc/nginx/nginx.conf # change the parameters as shown in the next figure
-$ sudo service nginx restart
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo vim /etc/nginx/nginx.conf # change the parameters as shown in the next figure
+sudo service nginx restart
 ```
 
 

@@ -25,43 +25,43 @@ parser nor of the database server nor the application server.
 
 #### Install virtualbox, vagrant and git:
 ```bash
-$ sudo apt-get install -y virtualbox vagrant
+sudo apt-get install -y virtualbox vagrant
 ```
 
 Test versions:
 
 ```bash:
-$ vagrant -v
-Vagrant 1.8.1
+vagrant -v
+# Vagrant 1.8.1
 
-$ vboxmanage --version
-5.0.24_Ubuntur108355
+vboxmanage --version
+# 5.0.24_Ubuntur108355
 
-$ git --version
-git version 2.7.4 
+git --version
+# git version 2.7.4 
 ```
 
 ### Deploy redis using vagrant:
 ```bash
-$ git clone https://github.com/ffis/vagrant-redis vagrant-redis
-$ cd vagrant-redis
-$ vagrant up # to wake up the Virtual Machine
-$ vagraht halt # use this anytime you want or you need to, you may turn it off
+git clone https://github.com/ffis/vagrant-redis vagrant-redis
+cd vagrant-redis
+vagrant up # to wake up the Virtual Machine
+vagraht halt # use this anytime you want or you need to, you may turn it off
 
 ```
 
 Test:
 ```bash
-$ wget https://github.com/crypt1d/redi.sh/raw/master/redi.sh
-$ echo "this is a variable" | bash redi.sh -s testvar
-$ bash redi.sh -g testvar
+wget https://github.com/crypt1d/redi.sh/raw/master/redi.sh
+echo "this is a variable" | bash redi.sh -s testvar
+bash redi.sh -g testvar
 # If you can read "this is a variable" then everything is ok.
 ```
 
 Filtering connections: (change according to DMZ)
 ```bash
-$ sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
-$ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
+sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
+sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 ```
 
 
@@ -69,34 +69,34 @@ $ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 
 ### Install docker:
 ```bash
-$ sudo apt-get install -y docker.io 
+sudo apt-get install -y docker.io 
 ```
 
 
 ### Deploy redis using docker:
 
 ```bash
-$ sudo service docker start
-$ sudo docker pull redis
-$ sudo docker run --name some-redis -p6379:6379 -d redis
+sudo service docker start
+sudo docker pull redis
+sudo docker run --name some-redis -p6379:6379 -d redis
 
-$ pidredis=`sudo docker ps -a | grep redis | cut -f 1 -d " "`
-$ sudo docker stop $pidredis 
-$ sudo docker rm $pidredis 
+pidredis=`sudo docker ps -a | grep redis | cut -f 1 -d " "`
+sudo docker stop $pidredis 
+sudo docker rm $pidredis 
 ```
 
 Test:
 ```bash
-$ wget https://github.com/crypt1d/redi.sh/raw/master/redi.sh
-$ echo "this is a variable" | bash redi.sh -s testvar
-$ bash redi.sh -g testvar
+wget https://github.com/crypt1d/redi.sh/raw/master/redi.sh
+echo "this is a variable" | bash redi.sh -s testvar
+bash redi.sh -g testvar
 # If you can read "this is a variable" then everything is ok.
 ```
 
 Filtering connections: (change according to DMZ)
 ```bash
-$ sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
-$ sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
+sudo iptables -I INPUT -p TCP -s 10.0.0.0/8 --dport 6379 -j ACCEPT
+sudo iptables -I INPUT -p TCP --dport 6379 -j DROP
 ```
 
 
